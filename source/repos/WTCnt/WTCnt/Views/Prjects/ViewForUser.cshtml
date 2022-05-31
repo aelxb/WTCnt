@@ -1,0 +1,51 @@
+﻿@model ProjectsViewModel
+
+
+<h1>Проекты</h1>
+<head>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <link href="~/css/gradient.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Добавить</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <td align="center">
+                    Название
+                </td>
+                <td align="center">
+                    Создан
+                </td>
+                <td align="center">
+                    Тимлид
+                </td>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ProjectPerTasks@*.FindAll(p => p.ID_Task == int.Parse(User.Identities.ToList()[0].Name))*@)
+            {
+                <tr>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => Model.Prjects.ToList().Find(p => p.ID == item.ID_project).Name)
+                    </td>
+                    <td align="center">
+                        @Model.Prjects.ToList().Find(p => p.ID == item.ID_project).EndDate.ToShortDateString()
+                    </td>
+                    <td align="center">
+                        @Model.Users.ToList().Find(u => u.ID == Model.Prjects.ToList().Find(p => p.ID == item.ID_project).UserOwner).Name @Model.Users.ToList().Find(u => u.ID == Model.Prjects.ToList().Find(p => p.ID == item.ID_project).UserOwner).Surname
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID_project">Завершить</a>
+                    </td>
+                    @*<td>
+                        <a asp-action="Details" asp-controller="Prjects" asp-route-id="@Model.Prjects.ToList().Find(p => p.ID == item.ID_project).ID">Подробнее</a>
+                    </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

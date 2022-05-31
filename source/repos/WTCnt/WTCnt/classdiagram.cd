@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WTCnt.Models.LKModel">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAQA=</HashCode>
+      <FileName>Models\LKModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Models.MainViewModel">
+    <Position X="13.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAIAAAAAAQ=</HashCode>
+      <FileName>Models\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Models.PpUViewModel">
+    <Position X="13.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAABAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PpUViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Models.ProjectsViewModel">
+    <Position X="7.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAABAAAAAAAAAAACAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\ProjectsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Models.RegisterModel">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAA=</HashCode>
+      <FileName>Models\RegAuthModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Models.LoginModel">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RegAuthModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Models.WorkTaskModel">
+    <Position X="13.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\WorkTaskModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.AccountController">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACCJAAAAAAAAAIAAAAAIAAgAIAQAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.HomeController">
+    <Position X="0.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAIAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.NewsController">
+    <Position X="5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAQA=</HashCode>
+      <FileName>Controllers\NewsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.PrjectsController">
+    <Position X="11.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAABBACAAAAAAAAAAAEEAEACAAEAAIAAAAA=</HashCode>
+      <FileName>Controllers\PrjectsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.ProjectPerUsersController">
+    <Position X="6.75" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAABBACAAAAAAAAIAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProjectPerUsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.StatisticController">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\StatisticController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.TasksController">
+    <Position X="4.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAAAUAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TasksController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.UsrsController">
+    <Position X="9.75" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\UsrsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WTCnt.Controllers.WorkTasksController">
+    <Position X="2.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIACAAAABBACAAAAAAAAAAAUAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\WorkTasksController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Times New Roman" Size="12" />
+</ClassDiagram>

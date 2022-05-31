@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\alexb\source\repos\WTCnt\WTCnt\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2022-04-04T18:58:58.0726043Z;</History>
+  </PropertyGroup>
+</Project>

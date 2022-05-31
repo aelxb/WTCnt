@@ -1,0 +1,14 @@
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\bin\Release\net5.0\WTCnt.UI.Tests.deps.json
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\bin\Release\net5.0\WTCnt.UI.Tests.runtimeconfig.json
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\bin\Release\net5.0\WTCnt.UI.Tests.runtimeconfig.dev.json
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\bin\Release\net5.0\WTCnt.UI.Tests.dll
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\bin\Release\net5.0\ref\WTCnt.UI.Tests.dll
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\bin\Release\net5.0\WTCnt.UI.Tests.pdb
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.AssemblyInfoInputs.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.AssemblyInfo.cs
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.csproj.CoreCompileInputs.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.dll
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\ref\WTCnt.UI.Tests.dll
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.pdb
+C:\Users\alexb\source\repos\WTCnt\WTCnt.UI.Tests\obj\Release\net5.0\WTCnt.UI.Tests.genruntimeconfig.cache

@@ -1,0 +1,60 @@
+﻿@model ProjectsViewModel
+
+<head>
+    <link href="~/css/scrolltable.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Проекты <a asp-action="Create" style="font-size:40px">&#10010;</a></h1>
+    <div class="scroll-table">
+        <table>
+            <thead>
+                <tr>
+                    <th align="center">
+                        Название
+                    </th>
+                    <th align="center">
+                        Срок сдачи
+                    </th>
+                    <th align="center">
+                        Создан
+                    </th>
+                    <th align="center">
+                        Тимлид
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+        <div class="scroll-table-body">
+            <table>
+                <tbody>
+                    @foreach (var item in Model.Prjects)
+                    {
+                        <tr>
+                            <td align="center">
+                                <a asp-action="Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Name)</a>
+                            </td>
+                            <td align="center">
+                                @item.EndDate.ToShortDateString()
+                            </td>
+                            <td align="center">
+                                @item.CreationDate.ToShortDateString()
+                            </td>
+                            <td align="center">
+                                @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Name @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Surname
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ID">
+                                    <img src="~/files/compose_edit_modify_icon_177770.png" />
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.ID">
+                                    <img src="~/files/delete.png" />
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

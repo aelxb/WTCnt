@@ -1,0 +1,51 @@
+﻿@model WTCnt.Models.ProjectsViewModel
+
+
+<head>
+    <link href="~/css/chat.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="chat">
+        <h1 class="chat__header">Chat</h1>
+        <div class="chat__content">
+            @foreach (var item in Model.messages)
+            {
+                @if (int.Parse(User.Identities.ToList()[0].Name) == item.User_ID)
+                {
+                    <div class="chat__item">
+                        @Html.Raw("<img style='width:50px; height:50px;' alt='photo' class='chat__person - avatar' src=\"data:image/jpeg;base64,"
+                                                + Convert.ToBase64String(Model.Users.ToList().Find(u => u.ID == item.User_ID).Photo) + "\" />")
+                        <div class="chat__messages">
+                            <div class="chat__message">
+                                <div class="chat__message-time">
+                                    @item.TimeSend.ToString("U")
+                                </div>
+                                <div class="chat__message-content">
+                                    @item.Text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="chat__item chat__item--responder">
+                        @Html.Raw("<img style='width:50px; height:50px;' alt='photo' class='chat__person - avatar' src=\"data:image/jpeg;base64,"
+                                        + Convert.ToBase64String(Model.Users.ToList().Find(u => u.ID == item.User_ID).Photo) + "\" />")
+                        <div class="chat__messages">
+                            <div class="chat__message">
+                                <div class="chat__message-time">
+                                    @item.TimeSend.ToString("U")
+                                </div>
+                                <div class="chat__message-content">
+                                    @item.Text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</body>

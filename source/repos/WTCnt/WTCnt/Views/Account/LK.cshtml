@@ -1,0 +1,48 @@
+﻿@model LKModel
+
+<head>
+</head>
+<body>
+    <div class="card" style="border-style:solid; height:auto; border-radius:10px;">
+        <a asp-action="Edit" style="text-align:right" asp-controller="Usrs" asp-route-id="@Model.User.ID"><img style="margin:10px" src="~/files/compose_edit_modify_icon_177770.png" /></a>
+        <h3 style="text-align: center; margin: 5px">Пользователь:</h3>
+        @if (Model.User.Photo != null)
+        {<center>
+                <div style="align-content:center">
+                    @Html.Raw("<img style='width:40%; height:40%; max-height:300px; border-radius:10px; border-style:inset; margin:20px' src=\"data:image/jpeg;base64," + Convert.ToBase64String(Model.User.Photo) + "\" />")
+                </div>
+            </center>
+        }
+        <table>
+            <tr>
+                <td>
+                    <h3 style="text-align: left; margin: 0px 0px 0px 5px">
+                        Логин: @Model.User.DomenName
+                    </h3>
+                </td>
+                <td style="text-align:right">
+
+                    <button type="button" style="background-color: #f08b1b; margin: 0px 5px 5px 0px" class="btn btn-danger" onclick="location.href='@Url.Action("PersonalStatistic")'">Смотреть мою статистику</button>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <h3 style="text-align: left; margin: 0px 0px 0px 5px">Имя: @Model.User.Name @Model.User.Surname</h3>
+                </td>
+                <td style="text-align:right">
+                    <button type="button" class="btn btn-danger" style="background-color: #ea532d; margin: 0px 5px 5px 0px" onclick="location.href='@Url.Action("Exc")'">Скачать мою статистику</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 style="text-align: left; margin:0px 0px 0px 5px">Должность: @Model.User.Role</h3>
+                </td>
+                <td style="text-align:right">
+                    <form name="logout" method="post" asp-controller="Account" asp-action="Logout" id="logout" style="margin:0px 5px 5px 0px">
+                        <input type="submit" class="btn btn-danger" style="background-color: #5a3c8d" value="Выйти" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>

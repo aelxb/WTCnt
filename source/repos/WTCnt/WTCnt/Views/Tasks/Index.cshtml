@@ -1,0 +1,158 @@
+﻿@model MainViewModel
+
+<head>
+    <script src="~/js/nicepage.js"></script>
+    <script src="~/js/site.js"></script>
+    <link href="~/css/scrolltable.css" rel="stylesheet" />
+</head>
+<body>
+    <table align="center">
+        <tbody>
+            <tr>
+                <td>
+                    @if (Model.IsActiveTaskExists)
+                    {
+                        <div style="">
+                            <form asp-action="Edit">
+                                <input type="hidden" asp-for="Task.ID" name="id" />
+                                <h3 style="color:black; margin:5px">Текущий отгул:</h3>
+                                <h5 style="color:black; display: inline-block; margin: 5px">
+                                    Добавлено:
+                                </h5>
+                                <h5 style="color:navy;margin: 5px; display: inline-block">
+                                    @Model.Task.CreationDate.ToString("g")
+                                </h5>
+                                <h5 style="display: inline-block">|</h5>
+                                <h5 style="color:black; display: inline-block; margin: 5px">
+                                    Тип:
+                                </h5>
+                                <h5 style="color: navy; display: inline-block;margin: 5px">
+                                    @Model.Task.Type
+                                </h5>
+                                <h5 style="display: inline-block">|</h5>
+                                @if (Model.Task.Comment != null)
+                                {
+                                    <h5 style="color: black; display: inline-block; margin: 5px">
+                                        Комментарий:
+                                    </h5>
+                                    <h5 style="color: navy; display: inline-block;margin: 5px">
+                                        @Model.Task.Comment
+                                    </h5>
+                                }
+                            <input style="margin:0px 0px 5px 0px; background-color:#5a3c8d" type="submit" class="btn btn-danger" value="Завершить" />
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="Task.Comment" class="control-label">Комментарий</label>
+                                    <input asp-for="Task.Comment" class="form-control" />
+                                    <span asp-validation-for="Task.Comment" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Task.Type" class="control-label">Тип</label>
+                                    <select asp-for="Task.Type" class="form-control">
+                                        <option value="Отгул">Отгул</option>
+                                        <option value="Отпуск">Отпуск</option>
+                                        <option value="Болезнь">Болезнь</option>
+                                        <option value="Работа в выходные">Работа в выходные</option>
+                                        <option value="Другое">Другое</option>
+                                    </select>
+                                    <span asp-validation-for="Task.Type" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Ввод" style="background-color:#5a3c8d" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="scroll-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center; color:white">
+                                        Дата начала
+                                    </th>
+                                    <th style="text-align:center; color:white">
+                                        Дата окончания
+                                    </th>
+                                    <th style="text-align:center; color:white">
+                                        Комментарий
+                                    </th>
+                                    <th style="text-align:center; color:white">
+                                        Тип
+                                    </th>
+                                    <th style="text-align:center; color:white">
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="scroll-table-body" style="height:330px">
+                            <table>
+                                <tbody>
+                                    @foreach (var item in Model.Tasks)
+                                    {
+                                        if (item.EndDate == null)
+                                        {
+                                            <tr style="background-color: #f08b1b">
+                                                <td style="border-style:none; text-align:center">
+                                                    @item.CreationDate.ToString("g")
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    @if (item.EndDate.HasValue)
+                                                    {
+                                                        @item.EndDate.Value.ToString("g")
+                                                    }
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    @Html.DisplayFor(modelItem => item.Comment)
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    @Html.DisplayFor(modelItem => item.Type)
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td style="border-style:none; text-align:center">
+                                                    @item.CreationDate.ToString("g")
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    @if (item.EndDate.HasValue)
+                                                    {
+                                                        @item.EndDate.Value.ToString("g")
+                                                    }
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    @Html.DisplayFor(modelItem => item.Comment)
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    @Html.DisplayFor(modelItem => item.Type)
+                                                </td>
+                                                <td style="border-style:none; text-align:center">
+                                                    <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>

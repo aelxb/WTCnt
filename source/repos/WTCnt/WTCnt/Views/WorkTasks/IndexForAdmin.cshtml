@@ -1,0 +1,78 @@
+﻿@model MainViewModel
+
+<head>
+    <script src="~/js/nicepage.js"></script>
+    <script src="~/js/site.js"></script>
+    <link href="~/css/scrolltable.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="scroll-table">
+        <table>
+            <thead>
+                <tr>
+                    <th align="center">
+                        <a asp-action="IndexForAdmin" asp-controller="WorkTasks" asp-route-id=5 style="color:aliceblue">Пользователь</a>
+                    </th>
+                    <th align="center">
+                        <a asp-action="IndexForAdmin" asp-controller="WorkTasks" asp-route-id=1 style="color:aliceblue">Дата начала</a>
+                    </th>
+                    <th align="center">
+                        <a asp-action="IndexForAdmin" asp-controller="WorkTasks" asp-route-id=2 style="color:aliceblue">Дата окончания</a>
+                    </th>
+                    <th align="center">
+                        <a asp-action="IndexForAdmin" asp-controller="WorkTasks" asp-route-id=3 style="color:aliceblue">Задача</a>
+                    </th>
+                    <th>
+                        <a asp-action="IndexForAdmin" asp-controller="WorkTasks" asp-route-id=4 style="color:aliceblue">Выполнено</a>
+                    </th>
+                    <th>
+                        -
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <div class="scroll-table-body" style="height:550px">
+            <table>
+                <tbody>
+                    @foreach (var item in Model.Tasks)
+                    {
+                        <tr>
+                            <td align="center">
+                                @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Name @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Surname
+                            </td>
+                            <td align="center">
+                                @item.CreationDate.ToString("d")
+                            </td>
+                            <td align="center">
+                                @if (item.EndDate.HasValue)
+                                {
+                                    @item.EndDate.Value.ToString("d")
+                                }
+                            </td>
+                            <td align="center">
+                                @Html.DisplayFor(modelItem => item.Comment)
+                            </td>
+                            <td align="center">
+                                @if (item.Done == 2)
+                                {
+                                    <b style="color:green">Да</b>
+                                }
+                                else if (item.Done == 1)
+                                {
+                                    <b style="color:red">Просрочено</b>
+                                }
+                                else if (item.Done == 0)
+                                {
+                                    <b style="color:orange">Нет</b>
+                                }
+                            </td>
+                            <td align="center">
+                                <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

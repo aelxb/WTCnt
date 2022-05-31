@@ -1,0 +1,66 @@
+﻿@model WTCnt.Models.Usr
+<head>
+    <link href="~/css/attachfile.css" rel="stylesheet" />
+
+</head>
+<h1 style="text-align: center;">Редактировать</h1>
+<hr />
+<div style="text-align: center; overflow-y: scroll; height:543px">
+    <center>
+        <div>
+            <div class="col-md-4">
+                @using (Html.BeginForm("Edit", "Usrs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ID" />
+                    <div class="form-group" style="text-align: left;">
+                        <label asp-for="DomenName" class="control-label">Логин:</label>
+                        <input asp-for="DomenName" class="form-control" />
+                        <span asp-validation-for="DomenName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label asp-for="Password" class="control-label">Пароль:</label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label asp-for="Name" class="control-label">Имя:</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label asp-for="Surname" class="control-label">Фамилия:</label>
+                        <input asp-for="Surname" class="form-control" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label asp-for="Role" class="control-label">Роль:</label>
+                        <select asp-for="Role" class="form-control">
+                            <option value="Администратор">Администратор</option>
+                            <option value="Ведущий программист">Ведущий программист</option>
+                            <option value="Программист">Программист</option>
+                            <option value="Ведущий тестировщик">Ведущий тестировщик</option>
+                            <option value="Тестировщик">Тестировщик</option>
+                        </select>
+                        <span asp-validation-for="Role" class="text-danger"></span>
+                    </div>
+                    <div class="example-1">
+                        <div class="form-group">
+                            <label class="label" style="text-align:center; align-content:center">
+                                <i class="material-icons">attach_file</i>
+                                <span class="title" style="text-align: center; align-content: center">Добавить изображение</span>
+                                <input type="file" class="form-control" name="uploadImage" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" style="background-color:#5a3c8d" value="Сохранить" class="btn btn-primary" />
+                    </div>
+                }
+            </div>
+        </div>
+    </center>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

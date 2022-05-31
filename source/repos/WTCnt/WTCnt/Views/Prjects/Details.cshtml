@@ -1,0 +1,117 @@
+﻿@model WTCnt.Models.ProjectsViewModel
+
+<head>
+    <link href="~/css/scroll.css" rel="stylesheet" />
+    <link href="~/css/buttoninput.css" rel="stylesheet" />
+    <script src="~/js/nicepage.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Газ', 'Объём'],
+                ['Выполнено', @Model.tasks.FindAll(t=>t.Done==0).Count],
+                ['Не выполнено',@Model.tasks.FindAll(t => t.Done == 2).Count],
+            ]);
+            var options = {
+                title: 'Степень выполнения проекта',
+                is3D: false,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('air'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/jscript">
+        function CreateMergeReport() {
+            var messText = $('#mtext').val();
+            $.post("/Prjects/SendMessage", { messText: messText });
+            $("#form0").trigger('reset');
+        };
+    </script>
+    <script type="text/javascript">
+        setInterval(function () {
+            $.ajax({
+                url: '/Prjects/Chat',
+                datatype: "json",
+                type: "post",
+                contenttype: 'application/json; charset=utf-8',
+                async: true,
+                success: function (data) {
+                    $("#empList").html(data);
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        }, 3000);
+    </script>
+</head>
+<body>
+    <h1>@Model.Prject.Name</h1>
+    <table>
+        <tr>
+            <td>
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            Создан
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Prject.CreationDate)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Срок до
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Prject.EndDate)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Руководитель
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Model.Users.ToList().Find(u => u.ID == Model.Prject.UserOwner).Name @Model.Users.ToList().Find(u => u.ID == Model.Prject.UserOwner).Surname
+                        </dd>
+                        <dt class="col-sm-10">
+                            Участники
+                        </dt>
+                    </dl>
+                    <div style="height:100px; overflow-y:scroll">
+                        @foreach (var item in Model.tasks)
+                        {
+                            <label>
+                                @Html.Raw("<img style='width:50px; height:50px; border-radius:10px; border-style:solid' alt='photo'  src=\"data:image/jpeg;base64,"
+                                                                 + Convert.ToBase64String(Model.Users.ToList().Find(u => u.ID == item.UserOwner).Photo) + "\" />")
+                                @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Name @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Surname
+                            </label>
+                        }
+                    </div>
+                </div>
+                <div id="air" style="width: 500px; height: 400px;"></div>
+            </td>
+            <td>
+                <div id="empList">
+                </div>
+                @using (Html.BeginForm())
+                {
+                    <div class="u-form-horizontal" id="form0">
+
+                        <div class="text-field">
+                            <div class="text-field__group" style="height:30px">
+                                <div class="form-group">
+                                    <input class="text-field__input" input type="text" style="height:30px" name="mtext" id="mtext">
+                                </div>
+                                <div class="form-group">
+                                    <button class="text-field__btn" style="height:inherit" onclick="CreateMergeReport()" type="button">Отправить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </td>
+        </tr>
+    </table>
+</body>

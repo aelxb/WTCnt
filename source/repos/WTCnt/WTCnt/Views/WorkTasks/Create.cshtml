@@ -1,0 +1,44 @@
+﻿@model WTCnt.Models.WorkTaskModel
+
+<body>
+    <h1 style="text-align:center">Назначить задачу</h1>
+    <hr />
+    <div style="text-align: center; overflow-y: scroll; height:543px">
+        <center>
+            <div>
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group" style="text-align:left">
+                            <label asp-for="Task.Comment" class="control-label">Задача:</label>
+                            <input asp-for="Task.Comment" class="form-control" />
+                            <span asp-validation-for="Task.Comment" class="text-danger"></span>
+                        </div>
+                        <div class="form-group" style="text-align:left">
+                            <label asp-for="Task.EndDate" class="control-label">Закончить к:</label>
+                            <input asp-for="Task.EndDate" class="form-control" />
+                            <span asp-validation-for="Task.EndDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group" style="text-align:left">
+                            <label asp-for="Task.UserOwner" class="control-label">Сотрудник:</label>
+                            <select asp-for="Task.UserOwner" class="form-control">
+                                @foreach (var item in Model.Users)
+                                {
+                                    <option value="@item.ID">@item.Name @item.Surname</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Task.UserOwner" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Добавить" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </center>
+    </div>
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

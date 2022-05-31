@@ -1,0 +1,124 @@
+﻿@model MainViewModel
+
+<head>
+    <script src="~/js/nicepage.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Газ', 'Объём'],
+                ['Не выполнено', @Model.Tasks.ToList().FindAll(t=>t.Type=="Работа"&&t.Done==0).Count],
+                ['Выполнено',@Model.Tasks.ToList().FindAll(t=>t.Type=="Работа"&&t.Done==2).Count],
+                ['Просрочено',@Model.Tasks.ToList().FindAll(t=>t.Type=="Работа"&&t.Done==1).Count]
+            ]);
+            var options = {
+                title: 'За последний месяц',
+                is3D: false,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('air'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script src="~/js/nicepage.js"></script>
+    <script src="~/js/site.js"></script>
+    <link href="~/css/scrolltable.css" rel="stylesheet" />
+</head>
+<body>
+    <table width="90%" align="center">
+        <tbody>
+            <tr>
+                <td width="65%" padding="20px">
+                    <div class="scroll-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="center">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=1>Дата начала</a>
+                                    </th>
+                                    <th align="center">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=2>Дата окончания</a>
+                                    </th>
+                                    <th align="center">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=3>        Задача        </a>
+                                    </th>
+                                    <th>
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=4>Выполнено</a>
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="scroll-table-body" style="height:550px">
+                            <table>
+                                <tbody>
+                                    @foreach (var item in Model.Tasks)
+                                    {
+                                        <tr>
+                                            <td align="center">
+                                                @item.CreationDate.ToString("d")
+                                            </td>
+                                            <td align="center">
+                                                @if (item.EndDate.HasValue)
+                                                {
+                                                    @item.EndDate.Value.ToString("d")
+                                                }
+                                            </td>
+                                            <td align="center">
+                                                @Html.DisplayFor(modelItem => item.Comment)
+                                            </td>
+                                            <td align="center">
+                                                @if (item.Done == 2)
+                                                {
+                                                    <b style="color:green">Да</b>
+                                                }
+                                                else if (item.Done == 1)
+                                                {
+                                                    <b style="color:red">Просрочено</b>
+                                                }
+                                                else if (item.Done == 0)
+                                                {
+                                                    <b style="color:orange">Нет</b>
+                                                }
+                                            </td>
+                                            <td align="center">
+                                                <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a>
+                                            </td>
+                                            @if (item.Done == 2)
+                                            {
+                                                <td>
+                                                    <b>-</b>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <a asp-action="Edit" asp-route-id="@item.ID">Завершить</a>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td width="5%"></td>
+                <td width="30%">
+                    <center>
+                        <h3>Статистика моих задач:</h3>
+                        <div id="air" style="width: 500px; height: 400px;"></div>
+                    </center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>

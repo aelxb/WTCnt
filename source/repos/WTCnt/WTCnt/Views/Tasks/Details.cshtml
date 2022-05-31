@@ -1,0 +1,69 @@
+﻿@model WTCnt.Models.Task
+
+
+<h1 style="color:navy">Подробности</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Страница 2</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link rel="stylesheet" href="Страница-2.css" media="screen">
+    <script src="~/js/nicepage.js"></script>
+    <link href="~/css/nicepage.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <script src="~/js/site.js"></script>
+    <meta name="generator" content="Nicepage 4.3.3, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+
+</head>
+<body>
+    <div>
+        <h4>Задачи</h4>
+        <hr />
+        <dl class="row" >
+            <dt class="col-sm-2" style="color:navy">
+                Дата создания
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CreationDate)
+            </dd>
+            <dt class="col-sm-2" style="color:navy">
+               Дата окончания
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
+            <dt class="col-sm-2" style="color:navy">
+                Комментарий
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Comment)
+            </dd>
+            <dt class="col-sm-2" style="color:navy">
+                Тип
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+        </dl>
+    </div>
+    <span id="timerLabel" runat="server"></span>
+    <script type="text/javascript">
+        var finishTime = new Date();
+        finishTime.setMinutes(finishTime.getMinutes() + 5);
+        setInterval(function () {
+            var curTime = new Date();
+            var remainTime = finishTime - curTime;
+            document.getElementById("timerLabel").innerHTML = new Date(remainTime).localeFormat("mm:ss");
+
+        }, 1000);
+    </script>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.ID">Редактировать</a> |
+        <a asp-action="Index">Назад</a>
+    </div>
+</body>

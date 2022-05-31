@@ -1,0 +1,91 @@
+﻿@model IEnumerable<WTCnt.Models.Usr>
+
+<head>
+    <link href="~/css/scrolltable.css" rel="stylesheet" />
+</head>
+<h1>Пользователи</h1>
+
+<p>
+    <a asp-action="Create" style="text-decoration: none;">
+        <img src="~/files/add-user.png" />
+    </a>
+</p>
+<div class="scroll-table">
+    <table>
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th style="text-align:center; color:white">
+                    Имя
+                </th>
+                <th style="text-align: center; color: white">
+                    Фамилия
+                </th>
+                <th style="text-align: center; color: white">
+                    Роль
+                </th>
+                <th style="text-align: center; color: white">
+                    Логин
+                </th>
+                <th></th>
+                @if (User.IsInRole("Администратор") || User.IsInRole("Ведущий программист") || User.IsInRole("Ведущий тестировщик"))
+                {
+                    <th></th>
+                }
+            </tr>
+        </thead>
+    </table>
+    <div class="scroll-table-body" style="height:470px">
+        <table>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="background: linear-gradient(#FFFFFF, #FFFFF0);">
+                        <td style="border-style:none;">
+                            @if (item.Photo != null)
+                            {
+                                <div class="image" style="align-content:center;text-align:center">
+                                    @Html.Raw("<img style='width:60px; height:60px; border-style:solid; border-radius:4px' src=\"data:image/jpeg;base64,"
+                                                         + Convert.ToBase64String(item.Photo) + "\" />")
+                                </div>
+                            }
+                        </td>
+                        <td style="border-style:none; text-align:center">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td style="border-style:none; text-align:center">
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td style="border-style:none; text-align:center">
+                            @Html.DisplayFor(modelItem => item.Role)
+                        </td>
+                        <td style="border-style:none; text-align:center">
+                            @Html.DisplayFor(modelItem => item.DomenName)
+                        </td>
+                        <td style="border-style:none; text-align:center">
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@item.ID">
+                                    <img src="~/files/compose_edit_modify_icon_177770.png" />&nbsp;
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.ID">
+                                    <img src="~/files/information.png" />&nbsp;
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.ID">
+                                    <img src="~/files/delete.png" />
+                                </a>
+                            </div>
+                        </td>
+                        @if (User.IsInRole("Администратор") || User.IsInRole("Ведущий программист") || User.IsInRole("Ведущий тестировщик"))
+                        {
+                            <td style="border-style:none; text-align:center">
+                                <a asp-action="EmployeeStatistic" asp-controller="Account" asp-route-id="@item.ID">Статистика сотрудника</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
