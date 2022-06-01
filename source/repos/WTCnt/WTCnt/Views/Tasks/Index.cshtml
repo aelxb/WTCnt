@@ -1,6 +1,27 @@
 ﻿@model MainViewModel
 
 <head>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Газ', 'Объём'],
+                ['Отгулы', @Model.Tasks.ToList().FindAll(t=>t.Type=="Отгул").Count],
+                ['Болезнь',@Model.Tasks.ToList().FindAll(t=>t.Type=="Болезнь").Count],
+                ['Отпуск',@Model.Tasks.ToList().FindAll(t=>t.Type=="Отпуск").Count],
+                ['Другое',@Model.Tasks.ToList().FindAll(t=>t.Type=="Другое").Count]
+            ]);
+            var options = {
+                title: 'За последний месяц',
+                is3D: false,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('air'));
+            chart.draw(data, options);
+        }
+    </script>
     <script src="~/js/nicepage.js"></script>
     <script src="~/js/site.js"></script>
     <link href="~/css/scrolltable.css" rel="stylesheet" />
@@ -10,66 +31,77 @@
         <tbody>
             <tr>
                 <td>
-                    @if (Model.IsActiveTaskExists)
-                    {
-                        <div style="">
-                            <form asp-action="Edit">
-                                <input type="hidden" asp-for="Task.ID" name="id" />
-                                <h3 style="color:black; margin:5px">Текущий отгул:</h3>
-                                <h5 style="color:black; display: inline-block; margin: 5px">
-                                    Добавлено:
-                                </h5>
-                                <h5 style="color:navy;margin: 5px; display: inline-block">
-                                    @Model.Task.CreationDate.ToString("g")
-                                </h5>
-                                <h5 style="display: inline-block">|</h5>
-                                <h5 style="color:black; display: inline-block; margin: 5px">
-                                    Тип:
-                                </h5>
-                                <h5 style="color: navy; display: inline-block;margin: 5px">
-                                    @Model.Task.Type
-                                </h5>
-                                <h5 style="display: inline-block">|</h5>
-                                @if (Model.Task.Comment != null)
-                                {
-                                    <h5 style="color: black; display: inline-block; margin: 5px">
-                                        Комментарий:
-                                    </h5>
-                                    <h5 style="color: navy; display: inline-block;margin: 5px">
-                                        @Model.Task.Comment
-                                    </h5>
-                                }
-                            <input style="margin:0px 0px 5px 0px; background-color:#5a3c8d" type="submit" class="btn btn-danger" value="Завершить" />
-                            </form>
-                        </div>
-                    }
-                    else
-                    {
-                        <div>
-                            <form asp-action="Create">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <div class="form-group">
-                                    <label asp-for="Task.Comment" class="control-label">Комментарий</label>
-                                    <input asp-for="Task.Comment" class="form-control" />
-                                    <span asp-validation-for="Task.Comment" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Task.Type" class="control-label">Тип</label>
-                                    <select asp-for="Task.Type" class="form-control">
-                                        <option value="Отгул">Отгул</option>
-                                        <option value="Отпуск">Отпуск</option>
-                                        <option value="Болезнь">Болезнь</option>
-                                        <option value="Работа в выходные">Работа в выходные</option>
-                                        <option value="Другое">Другое</option>
-                                    </select>
-                                    <span asp-validation-for="Task.Type" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Ввод" style="background-color:#5a3c8d" class="btn btn-primary" />
-                                </div>
-                            </form>
-                        </div>
-                    }
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="75%">
+                                    @if (Model.IsActiveTaskExists)
+                                    {
+                                        <div style="">
+                                            <form asp-action="Edit">
+                                                <input type="hidden" asp-for="Task.ID" name="id" />
+                                                <h3 style="color:black; margin:5px">Текущий отгул:</h3>
+                                                <h5 style="color:black; display: inline-block; margin: 5px">
+                                                    Добавлено:
+                                                </h5>
+                                                <h5 style="color:navy;margin: 5px; display: inline-block">
+                                                    @Model.Task.CreationDate.ToString("g")
+                                                </h5>
+                                                <h5 style="display: inline-block">|</h5>
+                                                <h5 style="color:black; display: inline-block; margin: 5px">
+                                                    Тип:
+                                                </h5>
+                                                <h5 style="color: navy; display: inline-block;margin: 5px">
+                                                    @Model.Task.Type
+                                                </h5>
+                                                <h5 style="display: inline-block">|</h5>
+                                                @if (Model.Task.Comment != null)
+                                                {
+                                                    <h5 style="color: black; display: inline-block; margin: 5px">
+                                                        Комментарий:
+                                                    </h5>
+                                                    <h5 style="color: navy; display: inline-block;margin: 5px">
+                                                        @Model.Task.Comment
+                                                    </h5>
+                                                }
+                                                <input style="margin:0px 0px 5px 0px; background-color:#5a3c8d" type="submit" class="btn btn-danger" value="Завершить" />
+                                            </form>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            <form asp-action="Create">
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                <div class="form-group">
+                                                    <label asp-for="Task.Comment" class="control-label">Комментарий</label>
+                                                    <input asp-for="Task.Comment" class="form-control" />
+                                                    <span asp-validation-for="Task.Comment" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="Task.Type" class="control-label">Тип</label>
+                                                    <select asp-for="Task.Type" class="form-control">
+                                                        <option value="Отгул">Отгул</option>
+                                                        <option value="Отпуск">Отпуск</option>
+                                                        <option value="Болезнь">Болезнь</option>
+                                                        <option value="Работа в выходные">Работа в выходные</option>
+                                                        <option value="Другое">Другое</option>
+                                                    </select>
+                                                    <span asp-validation-for="Task.Type" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" value="Ввод" style="background-color:#5a3c8d" class="btn btn-primary" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    }
+                                </td>
+                                <td>
+                                    <div id="air" style="width: 350px; height: 200px;"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
             <tr>

@@ -2,54 +2,57 @@
 <head>
     <link href="~/css/news.css" rel="stylesheet" />
     <link href="~/css/gradient.css" rel="stylesheet" />
+    <link href="~/css/scrolltable.css" rel="stylesheet" />
 </head>
 <body>
     <center>
         <h1>Новости</h1>
     </center>
-    <section class="grid">
-        @foreach (var item in Model)
-        {
-            if (User.IsInRole("Администратор") || item.Division == "Все")
+    <div style="overflow-y:scroll; height:600px" >
+        <section class="grid">
+            @foreach (var item in Model)
             {
-                <article class="grid-item" style="background: linear-gradient(white, WhiteSmoke);">
-                    @if (item.Picture != null)
-                    {
-                        <div class="image">
-                            <center>
-                                @Html.Raw("<img style='width:50%; height:50%; vertical-align:central;' src=\"data:image/jpeg;base64,"
-                                                     + Convert.ToBase64String(item.Picture) + "\" />")
-                            </center>
+                if (User.IsInRole("Администратор") || item.Division == "Все")
+                {
+                    <article class="grid-item" style="background: linear-gradient(white, WhiteSmoke);">
+                        @if (item.Picture != null)
+                        {
+                            <div class="image">
+                                <center>
+                                    @Html.Raw("<img style='width:50%; height:50%; vertical-align:central;' src=\"data:image/jpeg;base64,"
+                                                         + Convert.ToBase64String(item.Picture) + "\" />")
+                                </center>
+                            </div>
+                        }
+                        <div class="info">
+                            <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                            <div class="info-text">
+                                <p>@Html.DisplayFor(modelItem => item.Text)</p>
+                            </div>
                         </div>
-                    }
-                    <div class="info">
-                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                        <div class="info-text">
-                            <p>@Html.DisplayFor(modelItem => item.Text)</p>
+                    </article>
+                }
+                else if (((User.IsInRole("Тестировщик") || (User.IsInRole("Ведущий тестировщик"))) && item.Division == "Тестировщики") || (((User.IsInRole("Программист") || User.IsInRole("Ведущий программист")) && item.Division == "Программисты")))
+                {
+                    <article class="grid-item" style="background: linear-gradient(white, WhiteSmoke);">
+                        @if (item.Picture != null)
+                        {
+                            <div class="image">
+                                <center>
+                                    @Html.Raw("<img style='width:50%; height:50%; vertical-align:central;' src=\"data:image/jpeg;base64,"
+                                                         + Convert.ToBase64String(item.Picture) + "\" />")
+                                </center>
+                            </div>
+                        }
+                        <div class="info">
+                            <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                            <div class="info-text">
+                                <p>@Html.DisplayFor(modelItem => item.Text)</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                }
             }
-            else if (((User.IsInRole("Тестировщик") ||(User.IsInRole("Ведущий тестировщик"))) && item.Division == "Тестировщики")||(((User.IsInRole("Программист")|| User.IsInRole("Ведущий программист")) && item.Division == "Программисты")))
-            {
-                <article class="grid-item" style="background: linear-gradient(white, WhiteSmoke);">
-                    @if (item.Picture != null)
-                    {
-                        <div class="image">
-                            <center>
-                                @Html.Raw("<img style='width:50%; height:50%; vertical-align:central;' src=\"data:image/jpeg;base64,"
-                                                     + Convert.ToBase64String(item.Picture) + "\" />")
-                            </center>
-                        </div>
-                    }
-                    <div class="info">
-                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                        <div class="info-text">
-                            <p>@Html.DisplayFor(modelItem => item.Text)</p>
-                        </div>
-                    </div>
-                </article>
-            }
-        }
-    </section>
+        </section>
+    </div>
 </body>

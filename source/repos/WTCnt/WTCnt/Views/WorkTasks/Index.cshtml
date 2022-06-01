@@ -1,8 +1,6 @@
 ﻿@model MainViewModel
 
 <head>
-    <script src="~/js/nicepage.js"></script>
-    <script src="~/js/site.js"></script>
     <script src="https://www.google.com/jsapi"></script>
     <script>
         google.load("visualization", "1", { packages: ["corechart"] });
@@ -28,30 +26,30 @@
     <link href="~/css/scrolltable.css" rel="stylesheet" />
 </head>
 <body>
-    <table width="90%" align="center">
+    <table width="99%" align="center">
         <tbody>
             <tr>
-                <td width="65%" padding="20px">
+                <td width="80%" padding="10px">
                     <div class="scroll-table">
                         <table>
                             <thead>
                                 <tr>
-                                    <th align="center">
-                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=1>Дата начала</a>
+                                    <th style="text-align:center" width="12%">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=1 style="color:aliceblue">Дата начала</a>
                                     </th>
-                                    <th align="center">
-                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=2>Дата окончания</a>
+                                    <th style="text-align:center" width="12%">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=2 style="color:aliceblue">Дата окончания</a>
                                     </th>
-                                    <th align="center">
-                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=3>        Задача        </a>
+                                    <th style="text-align:center" width="40%">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=3 style="color:aliceblue">Задача</a>
                                     </th>
-                                    <th>
-                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=4>Выполнено</a>
+                                    <th style="text-align:center" width="12%">
+                                        <a asp-action="Index" asp-controller="WorkTasks" asp-route-id=4 style="color:aliceblue">Выполнено</a>
                                     </th>
-                                    <th>
+                                    <th style="text-align:center" width="12%">
 
                                     </th>
-                                    <th>
+                                    <th style="text-align:center" width="12%">
 
                                     </th>
                                 </tr>
@@ -63,19 +61,19 @@
                                     @foreach (var item in Model.Tasks)
                                     {
                                         <tr>
-                                            <td align="center">
+                                            <td style="text-align:center" width="12%">
                                                 @item.CreationDate.ToString("d")
                                             </td>
-                                            <td align="center">
+                                            <td style="text-align:center" width="12%">
                                                 @if (item.EndDate.HasValue)
                                                 {
                                                     @item.EndDate.Value.ToString("d")
                                                 }
                                             </td>
-                                            <td align="center">
+                                            <td style="text-align:center" width="40%">
                                                 @Html.DisplayFor(modelItem => item.Comment)
                                             </td>
-                                            <td align="center">
+                                            <td style="text-align:center" width="12%">
                                                 @if (item.Done == 2)
                                                 {
                                                     <b style="color:green">Да</b>
@@ -89,18 +87,18 @@
                                                     <b style="color:orange">Нет</b>
                                                 }
                                             </td>
-                                            <td align="center">
+                                            <td style="text-align:center" width="12%">
                                                 <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a>
                                             </td>
                                             @if (item.Done == 2)
                                             {
-                                                <td>
+                                                <td style="text-align:center" width="12%">
                                                     <b>-</b>
                                                 </td>
                                             }
                                             else
                                             {
-                                                <td>
+                                                <td style="text-align:center" width="12%">
                                                     <a asp-action="Edit" asp-route-id="@item.ID">Завершить</a>
                                                 </td>
                                             }
@@ -111,11 +109,11 @@
                         </div>
                     </div>
                 </td>
-                <td width="5%"></td>
-                <td width="30%">
+               <td width="2%"></td>
+                <td width="18%">
                     <center>
                         <h3>Статистика моих задач:</h3>
-                        <div id="air" style="width: 500px; height: 400px;"></div>
+                        <div id="air" style="width: 350px; height: 400px;"></div>
                     </center>
                 </td>
             </tr>

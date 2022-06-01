@@ -45,3 +45,12 @@
 ::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
+
+#table tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+/* Четные строки */
+#table tbody tr:nth-child(even) {
+    background: #F7F7F7;
+}

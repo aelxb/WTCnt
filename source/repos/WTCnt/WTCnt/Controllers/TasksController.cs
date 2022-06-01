@@ -24,7 +24,7 @@ namespace WTCnt.Controllers
         [Authorize(Roles = "Программист,Тестировщик, Ведущий программист, Ведущий тестировщик, Администратор")]
         public async Task<IActionResult> Index()
         {
-            Task task = _context.Task.ToList().Find(m => m.EndDate == null&&m.Type!="Работа");
+            Task task = _context.Task.ToList().Find(m => m.EndDate == null&&m.Type!="Работа"&&m.UserOwner== int.Parse(HttpContext.User.Identities.ToList()[0].Name));
             MainViewModel model = new MainViewModel();
             if (task == null)
             {
