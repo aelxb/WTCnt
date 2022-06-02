@@ -19,13 +19,13 @@
                         {
                             <div class="image">
                                 <center>
-                                    @Html.Raw("<img style='width:50%; height:50%; vertical-align:central;' src=\"data:image/jpeg;base64,"
+                                    @Html.Raw("<img style='max-height:300px; vertical-align:central;' src=\"data:image/jpeg;base64,"
                                                          + Convert.ToBase64String(item.Picture) + "\" />")
                                 </center>
                             </div>
                         }
                         <div class="info">
-                            <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                            <h2><a asp-action="Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Title)</a></h2>
                             <div class="info-text">
                                 <p>@Html.DisplayFor(modelItem => item.Text)</p>
                             </div>
@@ -39,17 +39,17 @@
                         {
                             <div class="image">
                                 <center>
-                                    @Html.Raw("<img style='width:50%; height:50%; vertical-align:central;' src=\"data:image/jpeg;base64,"
+                                    @Html.Raw("<img style='max-height:300px; vertical-align:central;' src=\"data:image/jpeg;base64,"
                                                          + Convert.ToBase64String(item.Picture) + "\" />")
                                 </center>
                             </div>
                         }
-                        <div class="info">
-                            <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                            <div class="info-text">
-                                <p>@Html.DisplayFor(modelItem => item.Text)</p>
-                            </div>
+                    <div class="info">
+                        <h2><a asp-action="Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Title)</a></h2>
+                        <div class="info-text">
+                            <p>@Html.DisplayFor(modelItem => item.Text)</p>
                         </div>
+                    </div>
                     </article>
                 }
             }
