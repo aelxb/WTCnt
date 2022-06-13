@@ -91,7 +91,7 @@ namespace WTCnt.Controllers
                     list = _tcontext.Task.ToList().FindAll(x => x.CreationDate.Month == month && x.UserOwner == int.Parse(HttpContext.User.Identities.ToList()[0].Name));
             }
             catch { }
-            model.Tasks = list;
+            model.Tasks = list.OrderBy(t=>t.CreationDate).ToList();
             model.month = month;
             model.rest = rest;
             model.work = work;
@@ -121,7 +121,7 @@ namespace WTCnt.Controllers
         public IActionResult EmployeeStatistic(int? id)
         {
             StatisticModel model = new StatisticModel();
-            model.Tasks = _tcontext.Task.ToList().FindAll(t => t.UserOwner == (int)id && t.CreationDate.Month == DateTime.Now.Month);
+            model.Tasks = _tcontext.Task.OrderBy(t => t.CreationDate).ToList().FindAll(t => t.UserOwner == (int)id && t.CreationDate.Month == DateTime.Now.Month);
             model.rest = true;
             model.work = true;
             return View(model);
@@ -141,7 +141,7 @@ namespace WTCnt.Controllers
                 WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(0);
                 SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
                 int index = 2;
-                var query = _tcontext.Task;
+                var query = _tcontext.Task.OrderBy(t=>t.CreationDate).ToList().FindAll(t=>t.UserOwner== int.Parse(HttpContext.User.Identities.ToList()[0].Name));
                 sheetData.AppendChild(SetRow("Задача/комментарий", 1, "A"));
                 sheetData.AppendChild(SetRow("Дата создания", 1, "B"));
                 sheetData.AppendChild(SetRow("Окончено", 1, "C"));

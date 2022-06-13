@@ -82,11 +82,11 @@
                     <div style="height:100px; overflow-y:scroll">
                         @foreach (var item in Model.tasks)
                         {
-                            <label>
+                            <div>
                                 @Html.Raw("<img style='width:50px; height:50px; border-radius:10px; border-style:solid' alt='photo'  src=\"data:image/jpeg;base64,"
                                                                  + Convert.ToBase64String(Model.Users.ToList().Find(u => u.ID == item.UserOwner).Photo) + "\" />")
                                 @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Name @Model.Users.ToList().Find(u => u.ID == item.UserOwner).Surname
-                            </label>
+                            </div>
                         }
                     </div>
                 </div>
@@ -99,16 +99,11 @@
                 {
                     <div class="u-form-horizontal" id="form0">
 
-                        <div class="text-field">
-                            <div class="text-field__group" style="height:30px">
-                                <div class="form-group">
-                                    <input class="text-field__input" input type="text" style="height:30px" name="mtext" id="mtext">
-                                </div>
-                                <div class="form-group">
-                                    <button class="text-field__btn" style="height:inherit" onclick="CreateMergeReport()" type="button">Отправить</button>
-                                </div>
-                            </div>
-                        </div>
+                        <label>
+                            <input class="text-field__input" input type="text" style="height:30px" name="mtext" id="mtext">
+                        
+                        <button class="btn-dark" style="height:inherit" onclick="CreateMergeReport()" type="button">Отправить</button>
+                        </label>
                     </div>
                 }
             </td>

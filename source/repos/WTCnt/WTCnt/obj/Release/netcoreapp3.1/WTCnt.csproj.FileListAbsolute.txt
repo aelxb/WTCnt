@@ -1,0 +1,8 @@
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.csproj.AssemblyReference.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.AssemblyInfoInputs.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.AssemblyInfo.cs
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.csproj.CoreCompileInputs.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.RazorAssemblyInfo.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\netcoreapp3.1\WTCnt.RazorAssemblyInfo.cs

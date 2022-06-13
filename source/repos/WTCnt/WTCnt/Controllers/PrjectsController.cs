@@ -29,7 +29,7 @@ namespace WTCnt.Controllers
             _ppuContext = ppu;
             _tContext = t;
         }
-        [Authorize(Roles = "Ведущий программист,Администратор")]
+        //[Authorize(Roles = "Ведущий программист,Администратор")]
         // GET: Prjects
         public async Task<IActionResult> Index()
         {

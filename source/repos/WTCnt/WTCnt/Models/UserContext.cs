@@ -13,6 +13,15 @@ namespace WTCnt.Models
         {
             Database.EnsureCreated();
         }
+        public UsrContext()
+        {
+
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-D4676LU\sqlexpress;Initial Catalog=WorktimeControl;Integrated Security=True");
+        }
         public DbSet<Usr> User { get; set; }
     }
 }

@@ -253,4 +253,3 @@ C:\Users\alexb\source\repos\WTCnt\WTCnt.Tests\obj\Debug\net5.0\WTCnt.Tests.dll
 C:\Users\alexb\source\repos\WTCnt\WTCnt.Tests\obj\Debug\net5.0\ref\WTCnt.Tests.dll
 C:\Users\alexb\source\repos\WTCnt\WTCnt.Tests\obj\Debug\net5.0\WTCnt.Tests.pdb
 C:\Users\alexb\source\repos\WTCnt\WTCnt.Tests\obj\Debug\net5.0\WTCnt.Tests.genruntimeconfig.cache
-C:\Users\alexb\source\repos\WTCnt\WTCnt.Tests\bin\Debug\net5.0\WTCnt.StaticWebAssets.xml

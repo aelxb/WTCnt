@@ -1,0 +1,46 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+/*html {
+    display: grid;
+    min-height: 100%;
+}*/
+/*
+body {
+    display: grid;
+    background: linear-gradient(to bottom left, #79C7C5 40%, #F9FBFF 100%);
+    font-family: 'Lato', sans-serif;
+}*/
+
+.prokrutka {
+    overflow: auto; /* свойство для прокрутки по горизонтали. Автоматом, если содержимое больше блока */
+}
+/*chat messages */
+
+
+.bubble {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #F9FBFF;
+    font-size: 0.7em;
+    padding: 10px 10px 10px 12px;
+    border-radius: 20px;
+}
+@keyframes bounce {
+    30% {
+        transform: translateY(-2px);
+    }
+
+    60% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(2px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 0.5;
+    }
+}

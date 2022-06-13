@@ -144,7 +144,7 @@ table {
 
 body {
     font-family: sans-serif;
-    background-color: #323B55;
+    background: linear-gradient(to top, #FFFFFF, #FFFAFA);
 }
 
 #slick-login {
@@ -221,12 +221,7 @@ body {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
     border-radius: 6px;
-    background-color: #5466da;
-    background-image: -webkit-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-    background-image: -moz-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-    background-image: -o-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-    background-image: -ms-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
-    background-image: linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+    background-color: #5a3c8d;
     -webkit-box-shadow: inset 0px 1px 0px #9ab1ec;
     box-shadow: inset 0px 1px 0px #9ab1ec;
     cursor: pointer;

@@ -4,7 +4,15 @@
     <link href="~/css/scrolltable.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Проекты <a asp-action="Create" style="font-size:40px">&#10010;</a></h1>
+    @if (User.IsInRole("Администратор")|| User.IsInRole("Ведущий программист")|| User.IsInRole("Ведущий тестировщик"))
+    {
+        <h1>Проекты <a asp-action="Create" style="font-size:40px">&#10010;</a></h1>
+    }
+    else
+    {
+        <h1>Проекты</h1>
+    }
+
     <div class="scroll-table">
         <table>
             <thead>

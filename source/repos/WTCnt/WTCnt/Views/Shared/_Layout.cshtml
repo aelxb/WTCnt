@@ -19,12 +19,13 @@
                     @if (!User.IsInRole("Администратор"))
                     {
                         <a class="navbar-brand" asp-area="" asp-controller="WorkTasks" asp-action="Index">Мои задачи</a>
+                        <a class="navbar-brand" asp-area="" asp-controller="Prjects" asp-action="Index">Проекты</a>
                         <a class="navbar-brand" asp-area="" asp-controller="News" asp-action="Index">Новости </a>
                         <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="LK">Личный кабинет и моя статистика</a>
                     }
                     @if (User.IsInRole("Администратор"))
                     {
-                        <a class="navbar-brand" asp-area="" asp-controller="Prjects" asp-action="Index">Мои проекты</a>
+                        <a class="navbar-brand" asp-area="" asp-controller="Prjects" asp-action="Index">Проекты</a>
                         <a class="navbar-brand" asp-area="" asp-controller="News" asp-action="Create">Добавить новость</a>
                         <a class="navbar-brand" asp-area="" asp-controller="Usrs" asp-action="Index">Пользователи</a>
                         <a class="navbar-brand" asp-area="" asp-controller="WorkTasks" asp-action="IndexForAdmin">Задачи</a>

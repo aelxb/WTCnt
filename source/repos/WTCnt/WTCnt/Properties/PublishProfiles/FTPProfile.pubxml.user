@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvS67Old55kGBq6Q5DqT+GQAAAAACAAAAAAAQZgAAAAEAACAAAAATnQI9O0BynSbQuaY7fqpjFEtvDtvCyHubhsu7F5CPvAAAAAAOgAAAAAIAACAAAABcOwSEilcj+3ja94dM2cHCXOLxkhnX5Xtf1WClXMxoQTAAAABzDs3TJ+FQnc43c1tU6ocBBLqKUkAIMv/EFPqOsO/FcdKDXsjZGn6GO/INfDo5MVxAAAAA/i475C/zKSIHQypRlNF6W/XvklTlUgRS7Fj0Ncp3PcraLmSypLbGdjB7E+xyBfFQrZXagftD9+plDmOYiOC6XA==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://37.140.192.97/http://kulturnayaideya.ru/</_PublishTargetUrl>
+    <History>False|2022-06-12T20:07:06.2463954Z;</History>
+  </PropertyGroup>
+</Project>

@@ -189,11 +189,6 @@ C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Prjects\I
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Prjects\ViewForUser.cshtml.g.cs
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Prjects\_Chat.cshtml.g.cs
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Prjects\_SendMessage.cshtml.g.cs
-C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\ProjectPerUsers\Create.cshtml.g.cs
-C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\ProjectPerUsers\Delete.cshtml.g.cs
-C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\ProjectPerUsers\Details.cshtml.g.cs
-C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\ProjectPerUsers\Edit.cshtml.g.cs
-C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\ProjectPerUsers\Index.cshtml.g.cs
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -224,3 +219,8 @@ C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\WTCnt.dll
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\ref\WTCnt.dll
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\WTCnt.pdb
 C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\WTCnt.genruntimeconfig.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\WTCnt.csproj.AssemblyReference.cache
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Account\EmployeeStatistic.cshtml.g.cs
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\Account\FilterStatistic.cshtml.g.cs
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\ProjectPerTasks\Create.cshtml.g.cs
+C:\Users\alexb\source\repos\WTCnt\WTCnt\obj\Release\net5.0\Razor\Views\WorkTasks\IndexForAdmin.cshtml.g.cs
